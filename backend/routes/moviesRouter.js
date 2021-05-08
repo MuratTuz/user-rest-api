@@ -44,3 +44,5 @@ router.delete('/:id', function (req, res, next) {
   service.deleteMovieById(id);
   res.sendStatus(200);
 });
+
+module.exports = router;

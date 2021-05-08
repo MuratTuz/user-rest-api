@@ -1,4 +1,4 @@
-export const rentsData = [
+exports.rentsData = [
     {
    "movieId": 10002,
    "duration": 10,

@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 const service = require('./services/rents-service');
 
@@ -34,3 +34,5 @@ router.delete('/:id', function(req, res, next) {
   service.deleteRentById(id);
   res.sendStatus(200);
 });
+
+module.exports = router;

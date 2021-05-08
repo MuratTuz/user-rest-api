@@ -1,11 +1,11 @@
 
 
 
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-var movieRouter = require('./moviesRouter');
-var rentRouter = require('./rentsRouter');
+const movieRouter = require('./moviesRouter');
+const rentRouter = require('./rentsRouter');
 
 
 router.use('/movies', movieRouter);

@@ -1,14 +1,14 @@
 const rents = require('../../model/rentsData');
 
-export function getAllRents() {
+exports.getAllRents=()=> {
     return rents;
 }
 
-export function createRent(newRent) {
+exports.createRent=(newRent)=> {
     rents.push(newRent);
 }
 
-export function deleteRentById(id) {
+exports.deleteRentById=(id)=> {
     rents = rents.filter(r => r.id != id);
 }
 /*
