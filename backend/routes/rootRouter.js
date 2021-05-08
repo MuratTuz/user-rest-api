@@ -4,12 +4,12 @@
 var express = require('express');
 var router = express.Router();
 
-var movieRouter = require('./movieRouter');
-var rentRouter = require('./rentRouter');
+var movieRouter = require('./moviesRouter');
+var rentRouter = require('./rentsRouter');
 
 
 router.use('/movies', movieRouter);
-router.use('/rent', rentRouter);
+router.use('/rents', rentRouter);
 
 
 module.exports = router;
