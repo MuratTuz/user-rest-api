@@ -30,7 +30,7 @@ router.post('/', function(req, res, next) {
 
 /* DELETE a rents. */
 router.delete('/:id', function(req, res, next) {
-  const id = req.params.id;
+  const id = Number(req.params.id);
   service.deleteRentById(id);
   res.sendStatus(200);
 });

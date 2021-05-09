@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
 
 /* GET movie by id. */
 router.get('/:id', function (req, res, next) {
-  const id = req.params.id;
+  const id = Number(req.params.id);
   const movie = service.getMovieById(id);
   res.send(movie);
 });
@@ -32,17 +32,19 @@ router.post('/', function (req, res, next) {
 
 /* PUT update a movie */
 router.put('/:id', function (req, res, next) {
-  const updatedMovieId = req.params.id;
+  const updatedMovieId = Number(req.params.id);
   const updatedMovieBody = req.body;
   const updatedMovie = service.updateMovieById(updatedMovieId, updatedMovieBody);
-  res.status(200).send(updatedMovie);
+  if (updatedMovie) res.status(200).send(updatedMovie);
+  else res.sendStatus(404);
 });
 
 /* DELETE a movie by id */
 router.delete('/:id', function (req, res, next) {
-  const id = req.params.id;
-  service.deleteMovieById(id);
-  res.sendStatus(200);
+  const id = Number(req.params.id);
+  const newMovies = service.deleteMovieById(id);
+  if (newMovies) res.status(200).send(newMovies);
+  else res.sendStatus(404);
 });
 
 module.exports = router;

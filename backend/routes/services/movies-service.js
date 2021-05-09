@@ -1,6 +1,7 @@
-const movies = require('../../model/moviesData');
+var movies = require('../../model/moviesData').moviesData;
 
-exports.getAllMovies= ()=> {
+exports.getAllMovies = () => {
+    console.log(movies);
     return movies;
 }
 
@@ -13,14 +14,24 @@ exports.createMovie=(newMovie)=> {
     movies.push(newMovie);
 }
 
-exports.updateMovieById=(id, updateMovieBody)=> {
+exports.updateMovieById=(id, updatedMovieBody)=> {
     let movie = movies.find(m => m.id == id);
-    movie = updateMovieBody;
-    return movie;
+    if (movie) {
+        Object.assign(movie, updatedMovieBody);
+        return movies; // object array
+    } else
+    return movie; // undefined
 }
 
-exports.deleteMovieById=(id)=> {
-    movies = movies.filter(m => m.id != id);
+exports.deleteMovieById = (id) => {
+    let movie = movies.find(m => m.id == id);
+    if (movie) {
+        const newMovies = movies.filter(m => m.id != id);
+        movies = newMovies;
+        return movies; // new object array
+    } else
+    return movie; // undefined
+
 }
 
 
