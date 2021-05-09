@@ -25,14 +25,15 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
   const newRent = req.body;
   service.createRent(newRent);
-  res.sendStatus(200);
+  res.sendStatus(200).send(newRent);
 });
 
 /* DELETE a rents. */
 router.delete('/:id', function(req, res, next) {
   const id = Number(req.params.id);
-  service.deleteRentById(id);
-  res.sendStatus(200);
+  const newRents = service.deleteRentById(id);
+  if (newRents) res.status(200).send(newRents);
+  else res.sendStatus(404);
 });
 
 module.exports = router;
