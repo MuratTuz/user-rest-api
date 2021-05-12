@@ -1,4 +1,4 @@
-exports.moviesData = [
+export const moviesData = [
     {
         "id": 10002,
         "name": "lord of the rings",

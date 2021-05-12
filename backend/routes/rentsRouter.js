@@ -1,7 +1,9 @@
-const express = require('express');
-const router = express.Router();
+import express from 'express';
+//const express = require('express');
+var router = express.Router();
 
-const service = require('./services/rents-service');
+import * as service from '../services/rents-service';
+//const service = require('./services/rents-service');
 
 /*
 GET /rents
@@ -36,4 +38,4 @@ router.delete('/:id', function(req, res, next) {
   else res.sendStatus(404);
 });
 
-module.exports = router;
+export default router;

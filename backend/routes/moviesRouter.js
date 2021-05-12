@@ -1,7 +1,9 @@
-const express = require('express');
-const router = express.Router();
+import express from 'express';
+//const express = require('express');
+var router = express.Router();
 
-const service = require('./services/movies-service');
+import * as service from '../services/movies-service';
+//const service = require('./services/movies-service');
 
 /**
 GET /movies
@@ -11,7 +13,7 @@ PUT /movies/:id
 DELETE /movies/:id
 
 /* GET all movies. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   const moviesList = service.getAllMovies();
   res.send(moviesList);
 });
@@ -47,4 +49,4 @@ router.delete('/:id', function (req, res, next) {
   else res.sendStatus(404);
 });
 
-module.exports = router;
+export default router;

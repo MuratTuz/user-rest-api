@@ -1,3 +1,13 @@
+import createError from 'http-errors';
+import express from 'express';
+import path from 'path';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
+import cors from 'cors';
+
+// main Router which contains other routers
+import { default as rootRouter } from './routes/rootRouter';
+/*
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -6,7 +16,7 @@ const logger = require('morgan');
 const cors = require('cors')
 
 const rootRouter = require('./routes/rootRouter');
-
+*/
 const app = express();
 
 
@@ -33,4 +43,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+app.listen(3000, ()=>{
+    console.log("listening on 3000");
+});
+

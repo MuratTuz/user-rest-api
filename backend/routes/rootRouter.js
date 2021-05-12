@@ -1,15 +1,16 @@
 
 
+import express from 'express';
+//const express = require('express');
+var router = express.Router();
 
-const express = require('express');
-const router = express.Router();
-
-const movieRouter = require('./moviesRouter');
-const rentRouter = require('./rentsRouter');
-
-
-router.use('/movies', movieRouter);
-router.use('/rents', rentRouter);
+import moviesRouter from './moviesRouter';
+import rentsRouter from './rentsRouter';
+//const movieRouter = require('./moviesRouter');
+//const rentRouter = require('./rentsRouter');
 
 
-module.exports = router;
+router.use('/movies', moviesRouter);
+router.use('/rents', rentsRouter);
+
+export default router;
